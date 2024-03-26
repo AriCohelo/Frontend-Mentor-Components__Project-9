@@ -1,0 +1,84 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+@import 'resets.scss';
+
+body {
+	@include flexer();
+	height: 100vh;
+	background-color: $Clr-BodyBackground;
+	font-family: $Ff-primary;
+}
+.product {
+	@include flexer();
+	height: 280px;
+	width: 730px;
+	background-color: $Clr-CardBackground;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
+	&__image {
+		width: 285px;
+		height: 280px;
+		& img {
+			width: 100%;
+			height: 280px;
+			object-fit: cover;
+			object-position: top left;
+		}
+	}
+
+	&__info {
+		@include flexer(column, center, left);
+		gap: 1rem;
+		padding: 2.5rem;
+		width: 445px;
+		height: 280px;
+	}
+	&__title {
+		font-size: 1.25rem;
+		font-weight: $Fw-bold;
+		color: $Clr-ModalBackground;
+	}
+	&__description {
+		font-size: 0.8125rem;
+		color: $Clr-IconBackground-active;
+	}
+	&__author {
+		display: grid;
+		gap: 1rem;
+		align-items: center;
+		grid-template-columns: 40px 1fr 33px;
+
+		& img {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+		}
+		&-name {
+			font-weight: $Fw-medium;
+			font-size: 0.8125rem;
+			color: $Clr-ModalBackground;
+		}
+		&-date {
+			font-size: 0.75rem;
+			color: $Clr-IconBackground-active;
+		}
+		&-share {
+			height: 33px;
+			width: 33px;
+			background-color: $Clr-BodyBackground;
+			border-radius: 50%;
+			@include flexer();
+			&:hover {
+				background-color: $Clr-ModalBackground;
+				cursor: pointer;
+			}
+			& path:hover {
+				fill: $Clr-CardBackground;
+			}
+		}
+	}
+}
+.product__author-share-svg {
+	fill: red;
+}
